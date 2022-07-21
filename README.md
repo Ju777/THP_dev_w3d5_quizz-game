@@ -7,6 +7,3 @@
 
 #### How to use this repo ?
     - Clone this repo and open index.html with your web browser.
-
-#### You also can ...
-... check my work at https://ju777.github.io/ but notice that this is a temporary page which will change or be removed in a while ...

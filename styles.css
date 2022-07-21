@@ -21,18 +21,24 @@
     width: 50vw;
     justify-self: center;
     align-self: start;
-    justify-content: center;
     justify-items:center;
-
+    align-items: center;
     margin-top: -15vh;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255);
+    padding : 15px;
 }
 
 #input-container{
-    border : 5px solid rgb(255, 211, 16);
+    /* border : 5px solid rgb(255, 211, 16); */
 }
 
 #button-container{
-    border : 5px solid rgb(251, 36, 255);
+    /* border : 5px solid rgb(251, 36, 255); */
+}
+
+.input-button{
+    display : none;
 }
 
 #next-question-container{
@@ -40,12 +46,17 @@
     /* background-color: darkorange; */
     display:none;
     color : white;
-    /* width: 50vw; */
-    /* height: 20vh; */
     position : absolute;
-    top : 50vh;
-    left : 10vw;
+    top : 40vh;
+    /* left : -10vw; */
+    width: 50vw;
+    /* height: 20vh; */
+}
 
+.answers-container{
+    border : 5px solid rgb(0, 204, 255);
+    display : grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #results-container{
