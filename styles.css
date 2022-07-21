@@ -1,0 +1,60 @@
+#main-container{
+    border : 5px solid green;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#title-container{
+    border : 5px solid rgb(32, 151, 255);
+    /* height: 10vh; */
+    align-self: start;
+    justify-self: center;
+
+    margin-top: 10vh;;
+}
+
+#input-area{
+    border : 5px solid rgb(255, 70, 70);
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50vw;
+    justify-self: center;
+    align-self: start;
+    justify-content: center;
+    justify-items:center;
+
+    margin-top: -15vh;
+}
+
+#input-container{
+    border : 5px solid rgb(255, 211, 16);
+}
+
+#button-container{
+    border : 5px solid rgb(251, 36, 255);
+}
+
+#next-question-container{
+    border : 5px solid rgb(255, 0, 0);
+    /* background-color: darkorange; */
+    display:none;
+    color : white;
+    /* width: 50vw; */
+    /* height: 20vh; */
+    position : absolute;
+    top : 50vh;
+    left : 10vw;
+
+}
+
+#results-container{
+    border : 5px solid rgb(230, 0, 255);
+    /* background-color: darkorange; */
+    color : white;
+    width: 50vw;
+    /* height: 20vh; */
+    align-self: start;
+    justify-self: center;
+
+}
