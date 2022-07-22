@@ -12,7 +12,7 @@
     align-self: start;
     justify-self: center;
     padding: 20px;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 #input-area{
@@ -50,7 +50,7 @@
     color : white;
     position : absolute;
     top : 35vh;
-    /* left : -10vw; */
+    left : 100vw;
     width: 50vw;
     /* height: 20vh; */
 }
@@ -76,10 +76,10 @@
     grid-template-columns: 1fr;
     color : white;
     width: 50vw;
+    margin-top: 50px;
     /* max-height: 40vh; */
     align-self: start;
-    justify-self: center;
-    
+    justify-self: center;   
 }
 
 .score-announce {
@@ -102,4 +102,26 @@ h4 {
     border-radius: 30px ;
     box-shadow: 1px 1px 5px 1px;
     padding : 10px;
+}
+
+.recording-container{
+    /* border : 5px solid rgb(230, 0, 255); */
+    background-color: rgb(44, 44, 44);
+    border-radius: 30px ;
+    box-shadow: 1px 1px 10px 3px;
+    display: none ;
+    grid-template-columns: 1fr;
+    color : white;
+    width: 50vw;
+    margin-top: -30vh;
+    /* max-height: 40vh; */
+    align-self: start;
+    justify-self: center; 
+      
+}
+
+.input-record-container{
+    padding:10px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
 }

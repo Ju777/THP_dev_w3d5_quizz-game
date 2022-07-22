@@ -87,8 +87,8 @@ displayQuestion = async (quizz, nextQuestion) => {
     // Animation d'entrée dans la fenêtre
     anime({
         targets: nextQuestionContainer,
-        translateX: "25vw",  
-        duration : 2000,
+        translateX: "-75vw",  
+        duration : 3000,
         direction : "normal"
     });
     // FIN
@@ -127,17 +127,21 @@ announceGameResults = () => {
 
     // Calcul des bonnes réponses
     let nbCorrectAnswers = computeResults(playerAnswers, correctAnswers);
-    console.log("Nombres ? => " + nbCorrectAnswers);
+    console.log("Nombres ? => " + nbCorrectAnswers);    
 
     // On affiche les réponses du joueur en regard des bonnes réponses.
     const resultsContainer = document.createElement('div');
     resultsContainer.setAttribute('id', 'results-container');
-    // resultsContainer.style.display = 'flex';
     mainContainer.appendChild(resultsContainer);
     resultsContainer.innerHTML = `  <div class="score-announce">
+                                        <div id="scoring-options" class="my-3 justify-content-around">
+                                            <button id="replay-button" class="btn-success rounded-pill">REPLAY ?</button>
+                                            <button id="record-button" class="btn-danger rounded-pill">Record score</button>
+                                        </div>
                                         <h1 class="text-danger">
                                              SCORE ${nbCorrectAnswers} / ${correctAnswers.length}
                                         </h1>
+                                        
                                     </div>
                                     <div class="answers-lists">
                                         <div>
@@ -165,7 +169,7 @@ announceGameResults = () => {
     for(let i = 0 ; i < correctAnswers.length ; i++){
         const liQuestion = document.createElement('li');
         questionsUl.appendChild(liQuestion);
-        liQuestion.innerHTML = `Q${i}`;
+        liQuestion.innerHTML = `Q${i+1}`;
 
         const liPlayer = document.createElement('li');
         playerUl.appendChild(liPlayer);
@@ -183,12 +187,18 @@ announceGameResults = () => {
         }
     }
 
-    const replayButton = document.createElement('button');
-    mainContainer.appendChild(replayButton);
-    replayButton.innerHTML = "<h1>REPLAY ?</h2>";
+    const replayButton = document.getElementById('replay-button');
     replayButton.addEventListener('click', () => {
         document.location.reload(true);
     });
+
+    const recordButton = document.getElementById('record-button');
+    recordButton.addEventListener('click', () => {
+        resultsContainer.style.display = 'none';
+        ranking(nbCorrectAnswers, correctAnswers.length);
+    });
+
+
 }
 
 computeResults = (playerAnswers, correctAnswers) => {
@@ -201,13 +211,44 @@ computeResults = (playerAnswers, correctAnswers) => {
     return count;
 }
 
+ranking = (nbCorrectAnswers, nbQuestions) => {
+    // Log de vérif
+    console.log("YOUAIPE ! YEP ! YUP !");
+    let score = ((nbCorrectAnswers/correctAnswers.length)*10).toFixed(2);
+
+    // Créer une div pour afficher les éléments de score
+    const recordingContainer = document.getElementById('recording-container');
+    const recordOkButton = document.getElementById('record-ok-button');
+    const recordsList = document.getElementById('records-list');
+    const inputRecord = document.getElementById('input-record');
+    recordingContainer.style.display = 'grid';
+
+    // Afficher la liste des scores déjà enregistrés
+
+    // Enregistrer un pseudo pour le joueur + afficher son score dans la liste
+    recordOkButton.addEventListener('click', () => {
+        localStorage.setItem(inputRecord.value, `${score} points / ${nbQuestions} questions > ${nbCorrectAnswers} answers.`);
+        console.log(localStorage.entries);
+        for(key in localStorage) {
+            if(localStorage.getItem(key) !== null){
+                const liRecord = document.createElement('li');
+                recordsList.appendChild(liRecord);
+                liRecord.innerHTML = `${key} : ${localStorage.getItem(key)}`;
+            }
+        }
+    });
+
+
+
+}
+
 welcomeScreen = () => {
     anime({
         targets: document.getElementById('title-container'),
         keyframes: [
                     {   
                         delay: 1500,
-                        scale: 0.25,
+                        scale: 0.1,
                         rotate: 180,
                         duration: 2000
                     },
@@ -218,13 +259,9 @@ welcomeScreen = () => {
                     {
                         delay: 500,
                         scale: 1
-                    },
-                    {
-                        delay: 30000
                     }
                 ],
                 easing: 'easeOutElastic(1, .25)',
-                loop: true
       });
 }
 
