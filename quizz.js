@@ -206,7 +206,7 @@ welcomeScreen = () => {
         targets: document.getElementById('title-container'),
         keyframes: [
                     {   
-                        delay: 2500,
+                        delay: 1500,
                         scale: 0.25,
                         rotate: 180,
                         duration: 2000
