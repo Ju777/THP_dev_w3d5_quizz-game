@@ -142,17 +142,17 @@ announceGameResults = () => {
                                     <div class="answers-lists">
                                         <div>
                                             <ul id="questions-title">
-                                                <li class="bg-info mb-3">QUESTIONS</li>
+                                                <li class="bg-info mb-3"><h5 class="p-2">QUESTIONS</h5></li>
                                             </ul>
                                         </div>                                           
                                         <div>
                                             <ul id="correct-answers">
-                                            <li class="bg-info mb-3">CORRECTION</li>
+                                            <li class="bg-info mb-3"><h5 class="p-2">ANSWERS</h5></li>
                                             </ul>
                                         </div>
                                         <div>
                                             <ul id="player-answers">
-                                            <li class="bg-info mb-3">JOUEUR</li>
+                                            <li class="bg-info mb-3"><h5 class="p-2">PLAYER'S</h5></li>
                                             </ul>
                                         </div>
                                     </div>`;
