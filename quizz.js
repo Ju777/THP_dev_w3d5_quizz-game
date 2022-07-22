@@ -113,12 +113,28 @@ displayQuestion = async (quizz, nextQuestion) => {
             playerAnswers.push(container.childNodes[1].innerHTML);
             nextQuestionContainer.style.transform = 'none';
             if(quizz.indexOf(nextQuestion) < quizz.length - 1){
-                displayQuestion(quizz, quizz[quizz.indexOf(nextQuestion) + 1]);
+                // TENTATIVE d'enchaîne une dexième animation faisant partir la fenetre de question par la gauche, mais ça marche pas/
+                // anime({
+                //     targets: nextQuestionContainer,
+                //     translateX: "-100vw",  
+                //     duration : 3000,
+                //     direction : "normal"
+                // });
+                // setTimeout(() => {
+                //     console.log("Retardée d'une seconde.");
+                //     displayQuestion(quizz, quizz[quizz.indexOf(nextQuestion) + 1]);
+                //   }, "3000");
+                // FIN
+                  displayQuestion(quizz, quizz[quizz.indexOf(nextQuestion) + 1]);
             } else {
                 announceGameResults();
             }
         });
     });
+}
+
+makeLeaveAnimation = () => {
+
 }
 
 announceGameResults = () => {
@@ -261,7 +277,7 @@ welcomeScreen = () => {
                         scale: 1
                     }
                 ],
-                easing: 'easeOutElastic(1, .25)',
+                easing: 'easeOutElastic(1, .1)',
       });
 }
 
