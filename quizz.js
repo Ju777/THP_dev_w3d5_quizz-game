@@ -204,14 +204,27 @@ computeResults = (playerAnswers, correctAnswers) => {
 welcomeScreen = () => {
     anime({
         targets: document.getElementById('title-container'),
-        rotate: 180,
-        direction: 'reverse',
-        duration: 2000
-      });
-
-      anime({
-        targets: document.getElementById('title-container'),
-        skew: 10
+        keyframes: [
+                    {   
+                        delay: 2500,
+                        scale: 0.25,
+                        rotate: 180,
+                        duration: 2000
+                    },
+                    {   
+                        rotate: 0,
+                        scale: 2
+                    },
+                    {
+                        delay: 500,
+                        scale: 1
+                    },
+                    {
+                        delay: 30000
+                    }
+                ],
+                easing: 'easeOutElastic(1, .25)',
+                loop: true
       });
 }
 
