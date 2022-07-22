@@ -1,36 +1,38 @@
 #main-container{
-    border : 5px solid green;
+    /* border : 5px solid green; */
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
 }
 
 #title-container{
-    border : 5px solid rgb(32, 151, 255);
+    border : 3px solid rgb(255, 22, 142);
+    border-radius : 30px;
     /* height: 10vh; */
     align-self: start;
     justify-self: center;
-
-    margin-top: 10vh;;
+    padding: 20px;
+    margin-top: 10vh;
 }
 
 #input-area{
-    border : 5px solid rgb(255, 70, 70);
+    /* border : 5px solid rgb(255, 70, 70); */
+    background-color: rgb(44, 44, 44);
+    border-radius: 30px ;
+    box-shadow: 1px 1px 10px 3px;
     display : grid;
     grid-template-columns: 1fr 1fr;
-    width: 50vw;
+    /* width: 50vw; */
     justify-self: center;
     align-self: start;
-    justify-items:center;
-    align-items: center;
     margin-top: -15vh;
     border-radius: 25px;
-    background-color: rgb(255, 255, 255);
     padding : 15px;
 }
 
 #input-container{
     /* border : 5px solid rgb(255, 211, 16); */
+    justify-self: center;
 }
 
 #button-container{
@@ -93,4 +95,10 @@
 ul {
     list-style-type: none;
     /* margin-right : 50px; */
+}
+
+h3 {
+    background-color: rgb(44, 44, 44);
+    border-radius: 30px ;
+    box-shadow: 1px 1px 5px 1px;
 }

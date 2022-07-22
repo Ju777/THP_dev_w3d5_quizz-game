@@ -64,16 +64,17 @@ displayQuestion = async (quizz, nextQuestion) => {
         </h3>
         <h4 class="mb-3 text-center">${nextQuestion.question}</h4>
         <div id="answers-container" class="answers-container">
-            <div class="answer-container p-3 d-flex"><h5 class="mx-2">A</h5><p id="answer-a" >${nextQuestion.correct_answer}</p></div>
-            <div class="answer-container p-3 d-flex"><h5 class="mx-2">B</h5><p id="answer-b" >${nextQuestion.incorrect_answers[0]}</p></div>
-            <div class="answer-container p-3 d-flex"><h5 class="mx-2">C</h5><p id="answer-c" >${nextQuestion.incorrect_answers[1]}</p></div>
-            <div class="answer-container p-3 d-flex"><h5 class="mx-2">D</h5><p id="answer-d" >${nextQuestion.incorrect_answers[2]}</p></div>
+            <div class="answer-container p-3 d-flex"><h5 class="me-5">A</h5><p id="answer-a" >${nextQuestion.correct_answer}</p></div>
+            <div class="answer-container p-3 d-flex"><h5 class="me-5">B</h5><p id="answer-b" >${nextQuestion.incorrect_answers[0]}</p></div>
+            <div class="answer-container p-3 d-flex"><h5 class="me-5">C</h5><p id="answer-c" >${nextQuestion.incorrect_answers[1]}</p></div>
+            <div class="answer-container p-3 d-flex"><h5 class="me-5">D</h5><p id="answer-d" >${nextQuestion.incorrect_answers[2]}</p></div>
         </div>
             `;
         } else if (nextQuestion.type === "boolean") {
         nextQuestionContainer.innerHTML = `
-        <h3 class="mb-4 text-center">QUESTION n° ${quizz.indexOf(nextQuestion) + 1}<br/>
-        ${nextQuestion.question}</h3>
+        <h3 class="mb-4 text-center">QUESTION n° ${quizz.indexOf(nextQuestion) + 1}
+        </h3>
+        <h4 class="mb-3 text-center">${nextQuestion.question}</h4>
         <div id="answers-container" class="answers-container">
             <div class="answer-container p-3 d-flex"><h5 class="mx-2">A</h5><p id="answer-a" >${nextQuestion.correct_answer}</p></div>
             <div class="answer-container p-3 d-flex"><h5 class="mx-2">B</h5><p id="answer-b" >${nextQuestion.incorrect_answers[0]}</p></div>
@@ -113,52 +114,6 @@ displayQuestion = async (quizz, nextQuestion) => {
             }
         });
     });
-
-    // EN ATTENTE d'etre sûr que le reste marche jusqu'au bout
-    // On met un écouteur d'évènement au click sur chaque case de réponse, pour enregistrer la réponse et passer à la question suivante.
-    // const answerA = document.getElementById('answer-a');
-    // const answerB = document.getElementById('answer-b');
-    // const answerC = document.getElementById('answer-c');
-    // const answerD = document.getElementById('answer-d');
-
-    // answerContainers[0].addEventListener('click', () => {
-    //     playerAnswers.push(answerA.innerHTML);
-    //     nextQuestionContainer.style.transform = 'none';
-    //     if(quizz.indexOf(nextQuestion) < quizz.length - 1){
-    //         displayQuestion(quizz, quizz[quizz.indexOf(nextQuestion) + 1]);
-    //     } else {
-    //         announceGameResults();
-    //     }
-    // });
-    // answerContainers[1].addEventListener('click', () => {
-
-    //     playerAnswers.push(answerB.innerHTML);
-    //     nextQuestionContainer.style.transform = 'none';
-    //     if(quizz.indexOf(nextQuestion) < quizz.length - 1){
-    //         displayQuestion(quizz, quizz[quizz.indexOf(nextQuestion) + 1]);
-    //     } else {
-    //         announceGameResults();
-    //     }
-    // });
-    // answerContainers[2].addEventListener('click', () => {
-    //     playerAnswers.push(answerC.innerHTML);
-    //     nextQuestionContainer.style.transform = 'none';
-    //     if(quizz.indexOf(nextQuestion) < quizz.length - 1){
-    //         displayQuestion(quizz, quizz[quizz.indexOf(nextQuestion) + 1]);
-    //     } else {
-    //         announceGameResults();
-    //     }
-    // });
-    // answerContainers[3].addEventListener('click', () => {
-    //     playerAnswers.push(answerD.innerHTML);
-    //     nextQuestionContainer.style.transform = 'none';
-    //     if(quizz.indexOf(nextQuestion) < quizz.length - 1){
-    //         displayQuestion(quizz, quizz[quizz.indexOf(nextQuestion) + 1]);
-    //     } else {
-    //         announceGameResults();
-    //     }
-    // });
-    // FIN DE EN ATTENTE
 }
 
 announceGameResults = () => {
@@ -200,13 +155,8 @@ announceGameResults = () => {
     // Affichage des réponses du joueur
     const questionsUl = document.getElementById('questions-title');
     const playerUl = document.getElementById('player-answers');
-    // for(let i = 0 ; i < playerAnswers.length ; i++){
-    //     const li = document.createElement('li');
-    //     playerUl.appendChild(li);
-    //     li.innerHTML = playerAnswers[i];
-    // }
-
     const correctUl = document.getElementById('correct-answers');
+
     for(let i = 0 ; i < correctAnswers.length ; i++){
         const liQuestion = document.createElement('li');
         questionsUl.appendChild(liQuestion);
@@ -246,8 +196,23 @@ computeResults = (playerAnswers, correctAnswers) => {
     return count;
 }
 
+welcomeScreen = () => {
+    anime({
+        targets: document.getElementById('title-container'),
+        rotate: 180,
+        direction: 'reverse',
+        duration: 2000
+      });
+
+      anime({
+        targets: document.getElementById('title-container'),
+        skew: 10
+      });
+}
+
 perform = () => {
     console.clear();
+    welcomeScreen();
     getQuizzSize();
 }
 
