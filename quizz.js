@@ -127,6 +127,7 @@ announceGameResults = () => {
 
     // Calcul des bonnes réponses
     let nbCorrectAnswers = computeResults(playerAnswers, correctAnswers);
+    let score = ((nbCorrectAnswers/correctAnswers.length)*10).toFixed(2);
     console.log("Nombres ? => " + nbCorrectAnswers);    
 
     // On affiche les réponses du joueur en regard des bonnes réponses.
@@ -136,7 +137,7 @@ announceGameResults = () => {
     resultsContainer.innerHTML = `  <div class="score-announce">
 
                                         <h1 class="text-danger">
-                                            SCORE ${nbCorrectAnswers} / ${correctAnswers.length}
+                                            SCORE ${score}
                                         </h1>
 
                                         </div>
@@ -198,7 +199,7 @@ announceGameResults = () => {
     const recordButton = document.getElementById('record-button');
     recordButton.addEventListener('click', () => {
         resultsContainer.style.display = 'none';
-        ranking(nbCorrectAnswers, correctAnswers.length);
+        ranking(score, nbCorrectAnswers, correctAnswers.length);
     });
 
 
@@ -214,10 +215,9 @@ computeResults = (playerAnswers, correctAnswers) => {
     return count;
 }
 
-ranking = (nbCorrectAnswers, nbQuestions) => {
+ranking = (score, nbCorrectAnswers, nbQuestions) => {
     // Log de vérif
     console.log("YOUAIPE ! YEP ! YUP !");
-    let score = ((nbCorrectAnswers/correctAnswers.length)*10).toFixed(2);
 
     // Créer une div pour afficher les éléments de score
     const recordingContainer = document.getElementById('recording-container');
