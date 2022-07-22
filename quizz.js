@@ -240,9 +240,6 @@ ranking = (nbCorrectAnswers, nbQuestions) => {
             }
         }
     });
-
-
-
 }
 
 welcomeScreen = () => {
