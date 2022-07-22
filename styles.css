@@ -42,30 +42,55 @@
 }
 
 #next-question-container{
-    border : 5px solid rgb(255, 0, 0);
+    /* border : 5px solid rgb(255, 0, 0); */
     /* background-color: darkorange; */
     display:none;
     color : white;
     position : absolute;
-    top : 40vh;
+    top : 35vh;
     /* left : -10vw; */
     width: 50vw;
     /* height: 20vh; */
 }
 
 .answers-container{
-    border : 5px solid rgb(0, 204, 255);
+    /* border : 5px solid rgb(0, 204, 255); */
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.answer-container{
+    border : 3px solid rgb(255, 0, 123);
     display : grid;
     grid-template-columns: 1fr 1fr;
 }
 
 #results-container{
-    border : 5px solid rgb(230, 0, 255);
-    /* background-color: darkorange; */
+    /* border : 5px solid rgb(230, 0, 255); */
+    background-color: rgb(44, 44, 44);
+    border-radius: 30px ;
+    box-shadow: 1px 1px 10px 3px;
+    display: grid ;
+    grid-template-columns: 1fr;
     color : white;
     width: 50vw;
-    /* height: 20vh; */
+    /* max-height: 40vh; */
     align-self: start;
     justify-self: center;
+    
+}
 
+.score-announce {
+    justify-self: center;
+    padding : 10px;
+}
+
+.answers-lists {
+    display: flex;
+    justify-self:center;
+}
+
+ul {
+    list-style-type: none;
+    /* margin-right : 50px; */
 }
