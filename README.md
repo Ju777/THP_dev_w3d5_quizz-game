@@ -7,3 +7,4 @@
 
 #### How to use this repo ?
     - Clone this repo and open index.html with your web browser.
+    - Or visit https://ju777.github.io/THP_dev_w3d5_quizz-game/
