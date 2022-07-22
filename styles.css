@@ -75,7 +75,7 @@
     display: grid ;
     grid-template-columns: 1fr;
     color : white;
-    width: 50vw;
+    max-width: 90vw;
     margin-top: 50px;
     /* max-height: 40vh; */
     align-self: start;
