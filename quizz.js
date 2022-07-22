@@ -62,7 +62,7 @@ displayQuestion = async (quizz, nextQuestion) => {
     nextQuestionContainer.innerHTML = `
         <h3 class="mb-4 text-center">QUESTION n° ${quizz.indexOf(nextQuestion) + 1}
         </h3>
-        <h4 class="mb-3 text-center">${nextQuestion.question}</h4>
+        <h4 class="mb-4 text-center">${nextQuestion.question}</h4>
         <div id="answers-container" class="answers-container">
             <div class="answer-container p-3 d-flex"><h5 class="me-5">A</h5><p id="answer-a" >${nextQuestion.correct_answer}</p></div>
             <div class="answer-container p-3 d-flex"><h5 class="me-5">B</h5><p id="answer-b" >${nextQuestion.incorrect_answers[0]}</p></div>
@@ -99,6 +99,11 @@ displayQuestion = async (quizz, nextQuestion) => {
         // On met un écouteur d'évènement au mousehover sur chaque case de réponse, pour modifier le pointeur de la souris.
         container.addEventListener('mouseover', () => {
             container.style.cursor = 'pointer';
+            container.classList.add('bg-primary'); 
+        });
+
+        container.addEventListener('mouseleave', () => {
+            container.classList.remove('bg-primary'); 
         });
 
         // On met un écouteur d'évènement au click sur chaque case de réponse, pour passer à la prochaine question et enregistrer la réponse de l'utlisateur.

@@ -97,8 +97,9 @@ ul {
     /* margin-right : 50px; */
 }
 
-h3 {
+h4 {
     background-color: rgb(44, 44, 44);
     border-radius: 30px ;
     box-shadow: 1px 1px 5px 1px;
+    padding : 10px;
 }
