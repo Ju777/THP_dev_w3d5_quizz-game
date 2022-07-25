@@ -1,5 +1,3 @@
-... project on progress ... not finished yet.
-
 # API + AnimeJS exercice in JS
 
 ## The today exercice's aim is to create a Quizz game, through the Open Trivia Database API : https://opentdb.com/ .
